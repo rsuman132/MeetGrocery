@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    android:id="@+id/cardView_mutton"
+    app:cardCornerRadius="4dp"
+    android:layout_margin="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="fitXY"
+            android:id="@+id/goat_img"
+            android:src="@drawable/broilerchicken"/>
+
+
+        <TextView
+            android:id="@+id/goat_breed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Broiler Chicken"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_toRightOf="@id/goat_img"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/mutton_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/goat_breed"
+            android:layout_toRightOf="@+id/goat_img"
+            android:text="@string/price"
+            android:layout_marginLeft="5dp"
+            android:textColor="#000"/>
+        <TextView
+            android:id="@+id/goat_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" ₹ "
+            android:textStyle="bold"
+            android:layout_toRightOf="@+id/mutton_rate"
+            android:layout_below="@id/goat_breed"
+            android:textColor="#5ec639"
+            android:layout_marginLeft="5dp"/>
+        <TextView
+            android:id="@+id/mutton_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00"
+            android:textStyle="bold"
+            android:layout_toRightOf="@+id/goat_amount"
+            android:layout_below="@id/goat_breed"
+            android:textColor="#5ec639"
+            android:layout_marginLeft="5dp"/>
+        <TextView
+            android:id="@+id/mutton_Quality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/quantity"
+            android:layout_below="@+id/mutton_rate"
+            android:layout_toRightOf="@id/goat_img"
+            android:layout_marginLeft="5dp"
+            android:textColor="#000"/>
+
+        <TextView
+            android:id="@+id/goat_Quality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" 1 "
+            android:layout_below="@+id/mutton_rate"
+            android:layout_toRightOf="@+id/mutton_Quality"
+            android:layout_marginLeft="5dp"
+            android:textColor="#EE0000"/>
+        <TextView
+            android:id="@+id/goat_Unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="per KG / per Count"
+            android:layout_below="@+id/mutton_rate"
+            android:layout_toRightOf="@+id/goat_Quality"
+            android:layout_marginLeft="5dp"
+            android:textColor="#000"/>
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

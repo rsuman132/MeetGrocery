@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChickenDetailPage"
+    android:background="#d77651">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/chickenDetailRelativeLayout"
+        android:background="#ebece8"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/chickenDetailbackArrow"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_baseline_arrow_back" />
+        <TextView
+            android:id="@+id/chickendeatailTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Meat Details"
+            android:textColor="#D77651"
+            android:textSize="18dp"
+            android:layout_marginLeft="5dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/chickenDetailbackArrow"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_shopping_cart"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/redcoupon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/redcoupondiscount"
+        android:layout_below="@id/chickenDetailRelativeLayout"
+        android:layout_margin="20dp"/>
+
+    <TextView
+        android:id="@+id/redcouponText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/offer_tag"
+        android:textColor="#78C257"
+        android:textStyle="italic"
+        android:layout_toRightOf="@id/redcoupon"
+        android:layout_below="@id/chickenDetailRelativeLayout"
+        android:layout_margin="20dp"
+        android:textSize="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/chickenDetailLinearLayout"
+        android:orientation="vertical"
+        android:layout_below="@id/redcouponText"
+        >
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/broilerchicken"
+            android:id="@+id/chickenDetailBreedImage"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:id="@+id/chickenDetailBreedName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/chicken_list"
+            android:layout_marginTop="10dp"
+            android:textColor="#000"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="10dp"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/price"
+                android:textColor="#000"
+                android:layout_margin="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text=" ₹ "
+                android:textSize="20dp"
+                android:textColor="#78C257"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/chickenDetailBreedRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="000"
+                android:textColor="#78C257"
+                android:layout_margin="5dp"
+                android:textSize="25dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/quantity"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:layout_margin="5dp"/>
+            <TextView
+                android:id="@+id/chickenDetailBreedQuantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textColor="#F11414"
+                android:text="00"
+                android:textSize="18dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="per KG/ per Count"
+                android:layout_margin="5dp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:id="@+id/addToCart"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_to_cart"
+        android:textAllCaps="false"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="5dp"
+        android:textColor="#000000"
+        android:drawableLeft="@drawable/ic_baseline_add_shopping_cart"
+        android:background="#78C257"
+        android:padding="10dp"
+        android:elevation="5dp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_above="@id/addToCart"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp">
+
+        <ImageButton
+            android:id="@+id/decreaseBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_remove_circle"
+            android:background="#d77651"
+            android:layout_margin="5dp"/>
+        <TextView
+            android:id="@+id/increaseTextView"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:text="1"
+            android:textColor="#000"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:background="#EE0000"/>
+        <ImageButton
+            android:id="@+id/IncreaseBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_add_circle_outline"
+            android:background="#d77651"
+            android:layout_margin="5dp"/>
+
+    </LinearLayout>
+</RelativeLayout>
