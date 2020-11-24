@@ -1,4 +1,4 @@
-package com.rs132studio.meatgrocery;
+package com.rs132studio.meatgrocery.Activities;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,13 +9,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.rs132studio.meatgrocery.Adaptor.MainListAdaptor;
+import com.rs132studio.meatgrocery.R;
 
 public class MainActivity extends AppCompatActivity implements MainListAdaptor.RecyclerViewClickListner{
 
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements MainListAdaptor.R
     MainListAdaptor mainListAdaptor;
     GridLayoutManager gridLayoutManager;
     AlertDialog.Builder alertDialogBuilder;
+    private ImageView cartMain;
 
 
     @Override
@@ -54,6 +56,14 @@ public class MainActivity extends AppCompatActivity implements MainListAdaptor.R
         gridLayoutManager = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
         mainRecyclerView.setLayoutManager(gridLayoutManager);
         mainRecyclerView.setAdapter(mainListAdaptor);
+
+        cartMain = findViewById(R.id.cartMain);
+        cartMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, CartItemActivity.class));
+            }
+        });
 
     }
 

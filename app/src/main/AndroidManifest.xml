@@ -9,13 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".BeefActivity"></activity>
-        <activity android:name=".MuttonActivity" />
-        <activity android:name=".ChickenDetailPage" />
-        <activity android:name=".ChickenActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activities.CartItemActivity"></activity>
+        <activity android:name=".Activities.BeefActivity" />
+        <activity android:name=".Activities.MuttonActivity" />
+        <activity android:name=".Activities.ChickenDetailPage" />
+        <activity android:name=".Activities.ChickenActivity" />
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

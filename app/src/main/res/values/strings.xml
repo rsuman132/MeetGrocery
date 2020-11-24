@@ -12,4 +12,8 @@
     <string name="mutton_list">Mutton List</string>
     <string name="category_mutton">Mutton Category</string>
     <string name="category_beef">Beef Category</string>
+    <string name="added_list">My CartItem List</string>
+    <string name="date">Date &amp; Time </string>
+    <string name="order">Order</string>
+    <string name="delete_all">Delete All</string>
 </resources>

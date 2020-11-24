@@ -1,4 +1,4 @@
-package com.rs132studio.meatgrocery;
+package com.rs132studio.meatgrocery.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,8 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.rs132studio.meatgrocery.Adaptor.BeefAdaptor;
-import com.rs132studio.meatgrocery.Adaptor.MuttonAdaptor;
 import com.rs132studio.meatgrocery.Model.ChickenCategory;
+import com.rs132studio.meatgrocery.R;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;

@@ -1,15 +1,28 @@
-package com.rs132studio.meatgrocery;
+package com.rs132studio.meatgrocery.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.rs132studio.meatgrocery.Adaptor.CartItemAdaptor;
+import com.rs132studio.meatgrocery.Data.DatabaseHandler;
+import com.rs132studio.meatgrocery.Model.CartItem;
+import com.rs132studio.meatgrocery.R;
+
+import java.util.ArrayList;
 
 public class ChickenDetailPage extends AppCompatActivity {
     private TextView chickDetailBreedName, chickDetailBreedRate, chickDetailBreedQuantity, chickDetailIncreaseTextView;
@@ -21,6 +34,9 @@ public class ChickenDetailPage extends AppCompatActivity {
     int textcount = 1;
     int a, b, c;
     private int chickDetailRate;
+    private DatabaseHandler databaseHandler;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +52,8 @@ public class ChickenDetailPage extends AppCompatActivity {
         chickDetailDecreaseBtn = findViewById(R.id.decreaseBtn);
         chickDetailIncreaseBtn = findViewById(R.id.IncreaseBtn);
         chickDetailAddToCartBTn = findViewById(R.id.addToCart);
+
+        databaseHandler = new DatabaseHandler(ChickenDetailPage.this);
 
         buttonClick = new View.OnClickListener() {
             @Override
@@ -69,6 +87,40 @@ public class ChickenDetailPage extends AppCompatActivity {
             chickDetailBreedRate.setText(String.valueOf(chickDetailRate));
             chickDetailBreedQuantity.setText(chickDetailQuantity);
         }
+
+        chickDetailAddToCartBTn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addCartDo(v);
+            }
+        });
+    }
+
+    private void addCartDo(View v) {
+        if (!chickDetailBreedName.getText().toString().isEmpty() && !chickDetailBreedRate.getText().toString().isEmpty() &&
+                !chickDetailBreedQuantity.getText().toString().isEmpty()) {
+                saveItemToDatabase();
+        }
+    }
+
+    private void saveItemToDatabase() {
+        CartItem cartItem = new CartItem();
+        String newName = chickDetailBreedName.getText().toString();
+        String newRate = chickDetailBreedRate.getText().toString();
+        String newQuantity = chickDetailBreedQuantity.getText().toString();
+
+        cartItem.setMeatName(newName);
+        cartItem.setMeatRate(newRate);
+        cartItem.setMeatQuantity(newQuantity);
+
+        databaseHandler.AddCartItem(cartItem);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent carListIntent = new Intent(ChickenDetailPage.this, CartItemActivity.class);
+                startActivity(carListIntent);
+            }
+        }, 1000);
     }
 
     private void dectextCount() {
