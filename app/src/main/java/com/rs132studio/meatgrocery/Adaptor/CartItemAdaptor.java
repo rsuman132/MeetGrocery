@@ -3,9 +3,12 @@ package com.rs132studio.meatgrocery.Adaptor;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +21,7 @@ import com.rs132studio.meatgrocery.Model.CartItem;
 import com.rs132studio.meatgrocery.R;
 
 import java.util.List;
+import java.util.zip.Inflater;
 
 public class CartItemAdaptor extends RecyclerView.Adapter<CartItemAdaptor.ViewHolder> {
     private Context context;
@@ -88,20 +92,45 @@ public class CartItemAdaptor extends RecyclerView.Adapter<CartItemAdaptor.ViewHo
             }
         }
 
-        private void editItem(CartItem cartItem) {
+        private void editItem(final CartItem cartItem) {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+            LayoutInflater inflater = LayoutInflater.from(context);
+            View view = inflater.inflate(R.layout.edit_database, null);
 
-            cartItem.setMeatName(cartItemName.getText().toString());
-            cartItem.setMeatRate(cartItemRate.getText().toString());
-            cartItem.setMeatQuantity(cartItemQuality.getText().toString());
+            final TextView editBreedName = view.findViewById(R.id.editBreedName);
+            final EditText editPrice = view.findViewById(R.id.editPrice);
+            final EditText editQuantity = view.findViewById(R.id.editQuantity);
+            Button saveBtnEdit = view.findViewById(R.id.saveBtnEdit);
+            Button cancelBtn = view.findViewById(R.id.cancelBtn);
 
-            if (!cartItemName.getText().toString().isEmpty() && !cartItemRate.getText().toString().isEmpty()
-                    && !cartItemQuality.getText().toString().isEmpty()) {
-                db = new DatabaseHandler(context);
-                db.updateCartItem(cartItem);
-            } else {
-                Toast.makeText(context, "Something is missing", Toast.LENGTH_SHORT).show();
-            }
+            alertDialogBuilder.setView(view);
+            final AlertDialog dialog = alertDialogBuilder.create();
+            dialog.show();
 
+            saveBtnEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    db = new DatabaseHandler(context);
+                    cartItem.setMeatName(cartItemName.getText().toString());
+                    cartItem.setMeatRate(editPrice.getText().toString());
+                    cartItem.setMeatQuantity(editQuantity.getText().toString());
+
+                    if (!cartItemName.getText().toString().isEmpty()
+                    && !editPrice.getText().toString().isEmpty() && !editQuantity.getText().toString().isEmpty()) {
+                        db.updateCartItem(cartItem);
+                        notifyItemChanged(getAdapterPosition(), cartItem);
+                    } else {
+                        Toast.makeText(context, "Something is missing", Toast.LENGTH_SHORT).show();
+                    }
+                    dialog.dismiss();
+                }
+            });
+            cancelBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
         }
 
         private void deleteItem(final int id) {

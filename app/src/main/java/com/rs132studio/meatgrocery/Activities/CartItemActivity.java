@@ -76,7 +76,7 @@ public class CartItemActivity extends AppCompatActivity {
     private void deleteAll() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setIcon(R.drawable.ic_baseline_warning);
-        alertDialogBuilder.setTitle("Delete");
+        alertDialogBuilder.setTitle("Delete All");
         alertDialogBuilder.setMessage("Are you want to delete " + Constants.TABLE_NAME);
         alertDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override

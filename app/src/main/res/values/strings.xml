@@ -16,4 +16,9 @@
     <string name="date">Date &amp; Time </string>
     <string name="order">Order</string>
     <string name="delete_all">Delete All</string>
+    <string name="name">Name</string>
+    <string name="editTitle">Edit Values Here</string>
+    <string name="quantityEdit">Quantity</string>
+    <string name="priceEdit">In Rupees</string>
+    <string name="save">Save</string>
 </resources>
